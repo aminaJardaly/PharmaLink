@@ -39,7 +39,7 @@ export default function BottomNavigationBar() {
       {/* Scan */}
       <TouchableOpacity
         style={styles.menuItem}
-        onPress={() => router.push('/screens/Home/HomePageScreen')}
+        onPress={() => router.push('/screens/Home/ScanScreen')}
       >
       <MaterialCommunityIcons name="data-matrix-scan" size={width * 0.06} color={colors.iconColor} />
       <Text style={[styles.menuText, { color: colors.iconColor }]}>Scan</Text>
