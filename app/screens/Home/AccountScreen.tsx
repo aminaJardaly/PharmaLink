@@ -43,7 +43,7 @@ export default function AccountScreen() {
       {/* Profile Section */}
       <View style={styles.profileContainer}>
         <ProfileSection
-          imageSource={require('../../../assets/images/Home/profile.jpg')} // Replace with profile image
+          imageSource={require('../../../assets/images/Home/profile1.jpg')} // Replace with profile image
           name="Sanni Muiz"
           email="muizsanni99@gmail.com"
           onEditPress={() => console.log('Edit Profile')}

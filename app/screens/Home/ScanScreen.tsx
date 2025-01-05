@@ -11,10 +11,12 @@ import {
   Easing,
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { MaterialIcons } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { getColors } from '../../../constants/Colors';
 import BottomNavigationBar from '../../components/Home/BottomNavigationBar';
+import Header from '../../components/Home/Header';
+
 
 const { width, height } = Dimensions.get('window');
 
@@ -77,12 +79,13 @@ export default function ScanScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <View style={styles.header}>
+      {/* <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
           <MaterialIcons name="arrow-back" size={24} color={colors.text} />
         </TouchableOpacity>
         <Text style={[styles.headerText, { color: colors.text }]}>Scan Doctor Note</Text>
-      </View>
+      </View> */}
+      <Header/>
 
       <View style={styles.imageContainer}>
         {imageUri ? (
@@ -99,7 +102,7 @@ export default function ScanScreen() {
 
       <View style={styles.footer}>
         <TouchableOpacity style={styles.controlButton} onPress={pickImage}>
-          <MaterialIcons name="camera-alt" size={32} color={colors.text} />
+          <EvilIcons name="camera" size={32} color={colors.text} />
           <Text style={[styles.controlText, { color: colors.text }]}>Capture</Text>
         </TouchableOpacity>
       </View>
@@ -158,9 +161,10 @@ const styles = StyleSheet.create({
   },
   footer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'center', // Centers items horizontally
     alignItems: 'center',
     paddingVertical: height * 0.02,
+    paddingRight:height * 0.01,
   },
   controlButton: {
     alignItems: 'center',

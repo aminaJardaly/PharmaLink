@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { getColors } from '../../../constants/Colors';
 
@@ -14,20 +14,23 @@ interface PharmacyCardProps {
     days: string;
     time: string;
   };
+  onPress: () => void; // Add onPress prop for navigation
 }
 
-export default function PharmacyCard({ name, address, rating, hours }: PharmacyCardProps) {
+export default function PharmacyCard({ name, address, rating, hours, onPress }: PharmacyCardProps) {
   const colors = getColors();
 
   return (
-    <View style={[styles.card, { backgroundColor: colors.background, borderColor: colors.borderColor }]}>
+    <TouchableOpacity
+      style={[styles.card, { backgroundColor: colors.background, borderColor: colors.borderColor }]}
+      onPress={onPress} // Trigger navigation on press
+    >
       <Image
         source={require('../../../assets/images/Home/pharmacy.jpg')} // Replace with your image path
         style={styles.image}
       />
       <View style={styles.content}>
         <Text style={[styles.name, { color: colors.text }]}>{name}</Text>
-        {/* <Text style={[styles.address, { color: colors.secondaryText }]}>{address}</Text> */}
         <View style={styles.ratingContainer}>
           <MaterialIcons name="star" size={16} color="#FFD700" />
           <Text style={[styles.rating, { color: colors.text }]}>{rating}</Text>
@@ -37,7 +40,7 @@ export default function PharmacyCard({ name, address, rating, hours }: PharmacyC
           <Text style={[styles.hours, { color: colors.text }]}>OPEN FROM: {hours.time}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -66,10 +69,6 @@ const styles = StyleSheet.create({
   name: {
     fontSize: width * 0.045, // Font size proportional to screen width
     fontWeight: 'bold',
-    marginBottom: width * 0.02,
-  },
-  address: {
-    fontSize: width * 0.04, // Font size proportional to screen width
     marginBottom: width * 0.02,
   },
   ratingContainer: {
