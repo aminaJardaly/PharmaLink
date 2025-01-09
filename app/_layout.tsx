@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import { Stack } from "expo-router";
-import { getColors } from '../constants/Colors'; // Import colors from constants
+import { getColors } from './constants/Colors'; // Import colors from constants
 
 export default function Layout() {
   const colors = getColors(); // Get current theme colors

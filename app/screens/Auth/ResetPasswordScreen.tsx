@@ -3,7 +3,7 @@ import { Text, StyleSheet, View, Image, Dimensions } from 'react-native';
 import InputField from '../../components/auth/InputField';
 import CustomButton from '../../components/CustomButton';
 import AuthLayout from '../../components/auth/AuthLayout';
-import { getColors } from '../../../constants/Colors';
+import { getColors } from '../../constants/Colors';
 import { useRouter } from 'expo-router';
 
 

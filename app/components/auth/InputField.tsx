@@ -11,7 +11,7 @@ import {
   TouchableWithoutFeedback,
   KeyboardTypeOptions, // Import KeyboardTypeOptions type
 } from 'react-native';
-import { getColors } from '../../../constants/Colors'; // Import color theme
+import { getColors } from '../../constants/Colors'; // Import color theme
 import { MaterialIcons } from '@expo/vector-icons'; // Import icons for show/hide functionality
 
 const { width, height } = Dimensions.get('window'); // Get screen dimensions for responsiveness

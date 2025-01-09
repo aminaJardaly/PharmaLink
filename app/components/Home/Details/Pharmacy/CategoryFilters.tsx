@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import { getColors } from '../../../../../constants/Colors';
+import { getColors } from '../../../../constants/Colors';
 
 export default function CategoryFilters({
   categories,

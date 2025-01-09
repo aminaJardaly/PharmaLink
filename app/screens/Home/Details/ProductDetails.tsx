@@ -1,28 +1,49 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
-import { getColors } from '../../../../constants/Colors';
+import React, { useState } from 'react';
+import { View, ScrollView, StyleSheet } from 'react-native';
+import { useRouter, useLocalSearchParams } from 'expo-router'; // Use useLocalSearchParams for params
+import { getColors } from '../../../constants/Colors';
+import ProductInfo from '../../../components/Home/Details/Product/ProductInfo';
+import Description from '../../../components/Home/Details/Product/Description';
+import AddToCart from '../../../components/Home/Details/Product/AddToCart';
+import Header from '../../../components/Home/Header';
 
-export default function ProductDetails({ route }: any) {
-  const { product } = route.params; // Access product details from the route
+
+export default function ProductDetails() {
+  const { product } = useLocalSearchParams(); // Access route params
+  const router = useRouter();
   const colors = getColors();
+
+  // Parse product JSON string into an object
+  const productDetails = product ? JSON.parse(product as string) : {};
+
+  // State for quantity
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
+        <Header currentPage="productDetail" /> 
       <ScrollView>
-        {/* Product Image */}
-        <Image source={{ uri: product.image }} style={styles.image} />
+        {/* Product Info Section */}
+        <ProductInfo
+          image={productDetails.image}
+          name={productDetails.name}
+          priceLBP={productDetails.price}
+          priceUSD={productDetails.price / 15000} // Example conversion rate
+          unit="1 Box"
+        />
 
-        {/* Product Details */}
-        <View style={styles.details}>
-          <Text style={[styles.name, { color: colors.text }]}>{product.name}</Text>
-          <Text style={[styles.price, { color: colors.primary }]}>
-            LBP {product.price.toLocaleString()}
-          </Text>
-          <Text style={[styles.category, { color: colors.secondaryText }]}>
-            Category: {product.category}
-          </Text>
-        </View>
+        {/* Product Description Section */}
+        <Description
+          description="This is a sample description of the product. Include details about the product here."
+        />
       </ScrollView>
+
+      {/* Add to Cart Section */}
+      <AddToCart
+        priceLBP={productDetails.price}
+        quantity={quantity}
+        setQuantity={setQuantity}
+      />
     </View>
   );
 }
@@ -30,28 +51,5 @@ export default function ProductDetails({ route }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-  },
-  image: {
-    width: '100%',
-    height: 200,
-    resizeMode: 'contain',
-    marginBottom: 20,
-  },
-  details: {
-    marginTop: 20,
-  },
-  name: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  price: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  category: {
-    fontSize: 16,
   },
 });

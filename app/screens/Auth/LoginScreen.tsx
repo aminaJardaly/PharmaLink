@@ -5,7 +5,7 @@ import InputField from '../../components/auth/InputField';
 import CustomButton from '../../components/CustomButton';
 import AuthLayout from '../../components/auth/AuthLayout';
 import { useRouter } from 'expo-router';
-import { getColors } from '../../../constants/Colors';
+import { getColors } from '../../constants/Colors';
 
 const { width, height } = Dimensions.get('window'); // Get screen dimensions for responsiveness
 

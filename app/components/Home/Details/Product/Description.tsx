@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { getColors } from '../../../../../constants/Colors';
+import { getColors } from '../../../../constants/Colors';
 
 export default function Description({ description }: { description: string }) {
   const colors = getColors();

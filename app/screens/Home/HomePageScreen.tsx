@@ -5,7 +5,7 @@ import SearchBar from '../../components/Home/SearchBar';
 import PharmacyCard from '../../components/Home/PharmacyCard';
 import BottomNavigationBar from '../../components/Home/BottomNavigationBar';
 import DealsAndNewsSection from '../../components/Home/DealsAndNewsSection';
-import { getColors } from '../../../constants/Colors'; // Import color theme
+import { getColors } from '../../constants/Colors'; // Import color theme
 import { useRouter } from 'expo-router'; // Import useRouter for navigation
 
 export default function HomeScreen() {
@@ -46,7 +46,7 @@ export default function HomeScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <Header />
+      <Header currentPage="home" /> 
       <SearchBar value="" onChangeText={() => {}} />
       <DealsAndNewsSection />
       <FlatList

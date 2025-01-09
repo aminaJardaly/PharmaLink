@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import { getColors } from '../../../constants/Colors';
+import { getColors } from '../../constants/Colors';
 
 const { width } = Dimensions.get('window'); // Get screen width for responsiveness
 

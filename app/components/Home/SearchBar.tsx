@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, Dimensions } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import { getColors } from '../../../constants/Colors'; // Import color theme
+import { getColors } from '../../constants/Colors'; // Import color theme
 
 
 const { width, height } = Dimensions.get('window'); // Get screen dimensions

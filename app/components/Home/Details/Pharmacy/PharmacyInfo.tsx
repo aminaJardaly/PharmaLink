@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
-import { getColors } from '../../../../../constants/Colors';
+import { getColors } from '../../../../constants/Colors';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window'); // Get screen width for responsiveness

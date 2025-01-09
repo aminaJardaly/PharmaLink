@@ -9,14 +9,15 @@ import {
   Modal,
   TouchableWithoutFeedback,
 } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons'; // FontAwesome for bell icon
-import { MaterialIcons } from '@expo/vector-icons'; // Material Icons for dropdown
-import { getColors } from '../../../constants/Colors'; // Import color theme
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons'; // Import icons
+import { useRouter } from 'expo-router'; // Router for navigation
+import { getColors } from '../../constants/Colors'; // Import color theme
 
 const { width, height } = Dimensions.get('window'); // Get screen dimensions
 
-export default function Header() {
+export default function Header({ currentPage }: { currentPage: string }) {
   const colors = getColors();
+  const router = useRouter();
   const [selectedLocation, setSelectedLocation] = useState('Home'); // Default location
   const [isDropdownVisible, setIsDropdownVisible] = useState(false); // Dropdown visibility
 
@@ -33,6 +34,13 @@ export default function Header() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
+      {/* Breadcrumb Navigation */}
+      {!['home', 'scan', 'account', 'order','search'].includes(currentPage) && (
+        <TouchableOpacity onPress={() => router.back()} style={styles.breadcrumbArrow}>
+          <MaterialIcons name="arrow-back" size={width * 0.06} color={colors.primary} />
+        </TouchableOpacity>
+      )}
+
       {/* Dropdown for Location Selection */}
       <View style={styles.dropdownContainer}>
         <TouchableOpacity onPress={toggleDropdown} style={styles.dropdownButton}>
@@ -69,7 +77,7 @@ export default function Header() {
       {/* Notification Icon */}
       <View style={styles.iconContainer}>
         <TouchableOpacity>
-        <FontAwesome name="bell" size={width * 0.05} color={colors.primary} />
+          <FontAwesome name="bell" size={width * 0.05} color={colors.primary} />
         </TouchableOpacity>
       </View>
     </View>
@@ -84,8 +92,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: width * 0.05, // 5% horizontal padding
     paddingVertical: height * 0.02, // 2% vertical padding
   },
+  breadcrumbArrow: {
+    marginRight: width * 0.03,
+  },
   dropdownContainer: {
     flex: 1,
+    marginLeft: width * 0.02, // Space from breadcrumb
   },
   dropdownButton: {
     flexDirection: 'row',
@@ -119,6 +131,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     flexDirection: 'row',
+    alignItems: 'center',
     gap: width * 0.03, // Responsive gap between icons
   },
 });

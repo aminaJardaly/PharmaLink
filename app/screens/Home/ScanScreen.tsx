@@ -13,7 +13,7 @@ import {
 import * as ImagePicker from 'expo-image-picker';
 import { EvilIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { getColors } from '../../../constants/Colors';
+import { getColors } from '../../constants/Colors';
 import BottomNavigationBar from '../../components/Home/BottomNavigationBar';
 import Header from '../../components/Home/Header';
 
@@ -85,7 +85,7 @@ export default function ScanScreen() {
         </TouchableOpacity>
         <Text style={[styles.headerText, { color: colors.text }]}>Scan Doctor Note</Text>
       </View> */}
-      <Header/>
+      <Header currentPage="scan" /> 
 
       <View style={styles.imageContainer}>
         {imageUri ? (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
-import { getColors } from '../../constants/Colors'; // Import the colors file
+import { getColors } from '../constants/Colors'; // Import the colors file
 
 const { width, height } = Dimensions.get('window'); // Get screen dimensions
 

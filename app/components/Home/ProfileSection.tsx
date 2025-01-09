@@ -8,7 +8,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons'; // Import FontAwesome5
-import { getColors } from '../../../constants/Colors'; // Colors
+import { getColors } from '../../constants/Colors'; // Colors
 
 const { width, height } = Dimensions.get('window');
 

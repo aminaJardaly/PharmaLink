@@ -4,7 +4,7 @@ import BottomNavigationBar from '../../components/Home/BottomNavigationBar'; // 
 import Header from '../../components/Home/Header'; // Header component
 import ProfileSection from '../../components/Home/ProfileSection'; // Profile Section
 import OptionsSection from '../../components/Home/OptionsSection'; // Options Section
-import { getColors } from '../../../constants/Colors'; // Colors
+import { getColors } from '../../constants/Colors'; // Colors
 import {AntDesign} from '@expo/vector-icons';
 import {MaterialIcons} from '@expo/vector-icons'; // Import MaterialIcons
 import {Feather} from '@expo/vector-icons'; // Import Feather
@@ -38,7 +38,7 @@ export default function AccountScreen() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       {/* Header */}
-      <Header />
+      <Header currentPage="account" /> 
 
       {/* Profile Section */}
       <View style={styles.profileContainer}>

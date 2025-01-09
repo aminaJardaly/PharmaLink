@@ -9,7 +9,7 @@ import {
 import BottomNavigationBar from '../../components/Home/BottomNavigationBar'; // Use your existing component
 import SearchBar from '../../components/Home/SearchBar'; // Use your existing component
 import Header from '../../components/Home/Header'; // Use the Header component
-import { getColors } from '../../../constants/Colors'; // Get color constants
+import { getColors } from '../../constants/Colors'; // Get color constants
 
 const { width, height } = Dimensions.get('window');
 
@@ -19,7 +19,7 @@ export default function SearchScreen() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       {/* Header Component */}
-      <Header />
+      <Header currentPage="search" /> 
 
       {/* Search Bar */}
       <SearchBar value="" onChangeText={() => {}} />

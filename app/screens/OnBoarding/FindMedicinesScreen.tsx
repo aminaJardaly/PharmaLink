@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import CustomButton from '../../components/CustomButton';
 import OnboardingComponent from '../../components/onboarding/OnboardingComponent';
 import ProgressStepper from '../../components/onboarding/ProgressStepper'; // Import the ProgressStepper
-import { getColors } from '../../../constants/Colors'; // Import colors from constants
+import { getColors } from '../../constants/Colors'; // Import colors from constants
 
 const { width, height } = Dimensions.get('window'); // Get screen dimensions for responsiveness
 

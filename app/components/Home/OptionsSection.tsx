@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
-import { getColors } from '../../../constants/Colors'; // Colors
+import { getColors } from '../../constants/Colors'; // Colors
 import {Feather} from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get('window');

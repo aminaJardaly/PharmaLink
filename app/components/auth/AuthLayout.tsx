@@ -8,7 +8,7 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
 } from 'react-native';
-import { getColors } from '../../../constants/Colors'; // Import colors from constants
+import { getColors } from '../../constants/Colors'; // Import colors from constants
 
 const { width, height } = Dimensions.get('window'); // Get screen dimensions
 

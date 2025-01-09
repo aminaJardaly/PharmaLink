@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
 import { useRouter, usePathname } from 'expo-router'; // Import `usePathname` for current route
-import { getColors } from '../../../constants/Colors'; // Import color theme
+import { getColors } from '../../constants/Colors'; // Import color theme
 import { Feather, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'; // Import icons
 
 const { width, height } = Dimensions.get('window'); // For responsive design

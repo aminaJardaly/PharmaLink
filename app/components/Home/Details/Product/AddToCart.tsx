@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { getColors } from '../../../../../constants/Colors';
+import { getColors } from '../../../../constants/Colors';
 
 export default function AddToCart({
   priceLBP,
@@ -23,9 +23,7 @@ export default function AddToCart({
         >
           <Text style={[styles.buttonText, { color: colors.text }]}>-</Text>
         </TouchableOpacity>
-        <Text style={[styles.quantityText, { color: colors.text }]}>
-          {quantity}
-        </Text>
+        <Text style={[styles.quantityText, { color: colors.text }]}>{quantity}</Text>
         <TouchableOpacity
           onPress={() => setQuantity(quantity + 1)}
           style={[styles.button, { borderColor: colors.borderColor }]}
@@ -35,9 +33,7 @@ export default function AddToCart({
       </View>
 
       {/* Add to Cart Button */}
-      <TouchableOpacity
-        style={[styles.addButton, { backgroundColor: colors.primary }]}
-      >
+      <TouchableOpacity style={[styles.addButton, { backgroundColor: colors.primary }]}>
         <Text style={[styles.addButtonText, { color: colors.buttonText }]}>
           Add LBP {(priceLBP * quantity).toLocaleString()}
         </Text>
@@ -54,20 +50,26 @@ const styles = StyleSheet.create({
   quantitySelector: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 20,
   },
   button: {
     borderWidth: 1,
     borderRadius: 8,
     padding: 8,
+    alignItems: 'center', // Centers the text horizontally
+    justifyContent: 'center', // Centers the text vertically
+    width: 40, // Optional: Fixed size for consistency
+    height: 40, // Optional: Fixed size for consistency
   },
   buttonText: {
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   quantityText: {
     fontSize: 16,
-    marginHorizontal: 10,
+    marginHorizontal: 20, // Increased spacing for better appearance
   },
   addButton: {
     alignItems: 'center',

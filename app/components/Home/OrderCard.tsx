@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native'; // Import TouchableOpacity
 import { MaterialIcons } from '@expo/vector-icons';
-import { getColors } from '../../../constants/Colors';
+import { getColors } from '../../constants/Colors';
 
 const { width, height } = Dimensions.get('window');
 
@@ -11,6 +11,7 @@ interface OrderCardProps {
   pharmacy: string;
   rating: number;
   distance: string;
+  onPress: () => void; // Add onPress property
 }
 
 export default function OrderCard({
@@ -19,11 +20,12 @@ export default function OrderCard({
   pharmacy,
   rating,
   distance,
+  onPress, // Destructure onPress
 }: OrderCardProps) {
   const colors = getColors();
 
   return (
-    <View style={[styles.card, { borderColor: colors.borderColor }]}>
+    <TouchableOpacity onPress={onPress} style={[styles.card, { borderColor: colors.borderColor }]}>
       {/* Header Section */}
       <View style={styles.header}>
         <Text style={[styles.name, { color: colors.text }]}>{name}</Text>
@@ -43,11 +45,11 @@ export default function OrderCard({
           </View>
           <View style={styles.ratingContainer}>
             <MaterialIcons name="star" size={16} color="#FFD700" />
-            <Text style={[styles.ratingText, { color: colors.text }]}>{rating}</Text>
+            <Text style={[styles.ratingText, { color: colors.text }]}>{rating.toFixed(1)}</Text>
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

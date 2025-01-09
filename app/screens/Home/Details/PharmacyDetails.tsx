@@ -6,7 +6,7 @@ import PharmacyInfo from '../../../components/Home/Details/Pharmacy/PharmacyInfo
 import SearchBar from '../../../components/Home/SearchBar';
 import CategoryFilters from '../../../components/Home/Details/Pharmacy/CategoryFilters';
 import ProductItem from '../../../components/Home/Details/Pharmacy/ProductItem';
-import { getColors } from '../../../../constants/Colors';
+import { getColors } from '../../../constants/Colors';
 import BottomNavigationBar from '../../../components/Home/BottomNavigationBar'; // Footer component
 
 type Product = {
@@ -41,7 +41,7 @@ export default function PharmacyDetail() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       {/* Header Section */}
-      <Header />
+      <Header currentPage="PharmacyDetails" /> 
 
       {/* Scrollable Content */}
       <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
@@ -67,26 +67,19 @@ export default function PharmacyDetail() {
         <View style={styles.productList}>
           {filteredProducts.map((product) => (
             <TouchableOpacity
-              key={product.id}
-              onPress={() =>
+            key={product.id}
+            onPress={() =>
                 router.push({
-                  pathname: '/screens/Home/Details/ProductDetails',
-                  params: {
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    category: product.category,
-                    image: product.image,
-                  },
+                pathname: '/screens/Home/Details/ProductDetails',
+                params: {
+                    product: JSON.stringify(product), // Pass product object as a JSON string
+                },
                 })
-              }
+            }
             >
-              <ProductItem
-                name={product.name}
-                price={product.price}
-                image={product.image}
-              />
+            <ProductItem name={product.name} price={product.price} image={product.image} />
             </TouchableOpacity>
+
           ))}
           {filteredProducts.length === 0 && (
             <Text style={[styles.noProducts, { color: colors.secondaryText }]}>
