@@ -96,17 +96,17 @@ export default function BottomNavigationBar() {
       {/* Account */}
       <TouchableOpacity
         style={styles.menuItem}
-        onPress={() => router.push('/screens/Home/AccountScreen')}
+        onPress={() => router.push('/screens/Home/account/AccountScreen')}
       >
         <Feather
           name="user"
           size={width * 0.06}
-          color={pathname === '/screens/Home/AccountScreen' ? colors.primary : colors.iconColor}
+          color={pathname === '/screens/Home/account/AccountScreen' ? colors.primary : colors.iconColor}
         />
         <Text
           style={[
             styles.menuText,
-            { color: pathname === '/screens/Home/AccountScreen' ? colors.primary : colors.iconColor },
+            { color: pathname === '/screens/Home/account/AccountScreen' ? colors.primary : colors.iconColor },
           ]}
         >
           Account

@@ -61,28 +61,44 @@ const tones = {
 
 const lightColors = {
   primary: tones.mainColor.normal,
+  secondary: tones.mainColor.light, // Secondary color
   text: '#000000',
   background: '#FFFFFF',
+  cardBackground: '#FFFFFF', // Card background color
   buttonText: '#FFFFFF',
   borderColor: tones.grey.grey300,
   placeholderText: tones.grey.grey400,
   secondaryText: tones.grey.grey600,
   linkColor: tones.mainColor.normalHover,
   iconColor: tones.grey.grey700,
-  facebookColor: tones.grey.grey700, // Facebook blue
+  danger: tones.error.normal, // Danger/Red color for errors
+  warning: tones.warning.normal, // Warning/Yellow color for alerts
+  success: tones.success.normal, // Success/Green color
+  facebookColor: tones.mainColor.dark, // Facebook blue
+  headerBackground: tones.mainColor.lightHover, // Header background
+  headerText: '#FFFFFF', // Header text color
+  inputBackground: tones.grey.grey50, // Input field background
 };
 
 const darkColors = {
   primary: tones.mainColor.normal,
+  secondary: tones.mainColor.dark, // Secondary color
   text: '#FFFFFF',
   background: '#000000',
+  cardBackground: tones.grey.grey800, // Card background color
   buttonText: '#000000',
   borderColor: tones.grey.grey600,
   placeholderText: tones.grey.grey500,
   secondaryText: tones.grey.grey400,
   linkColor: tones.mainColor.lightHover,
   iconColor: tones.grey.grey300,
+  danger: tones.error.light, // Danger/Red color for errors
+  warning: tones.warning.light, // Warning/Yellow color for alerts
+  success: tones.success.light, // Success/Green color
   facebookColor: tones.grey.grey300,
+  headerBackground: tones.grey.grey900, // Header background
+  headerText: '#FFFFFF', // Header text color
+  inputBackground: tones.grey.grey700, // Input field background
 };
 
 // Function to get the current theme colors
